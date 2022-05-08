@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for rdle_leaderboard project.
 
@@ -25,12 +26,13 @@ SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "7aed-68-175-124-240.ngrok.io"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "games.apps.GamesConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -105,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "America/New_York
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
