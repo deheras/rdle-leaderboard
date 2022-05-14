@@ -8,8 +8,8 @@ from django.utils import timezone
 class Game(models.Model):
     """Wordle-like game."""
 
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
     site_url = models.URLField()
 
     def __str__(self):
@@ -34,11 +34,12 @@ class UserScore(models.Model):
     """Submitted game score."""
 
     game = models.ForeignKey(Game, on_delete=CASCADE)
-    phone_number = CharField(max_length=20)
+    phone_number = CharField(max_length=255)
     submit_date = models.DateTimeField("date submitted")
     game_date = models.DateField("Date parsed from sms")
-    submission = models.JSONField()
+    submission = models.CharField(max_length=255)
     game_score = models.IntegerField()
+    full_message = models.CharField(max_length=255)
 
     def __str__(self):
         return "UserScore"
